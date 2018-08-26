@@ -109,6 +109,7 @@ namespace PoseAnnotationTool
                 var tokens = relative.Split('/', '\\').Where(t => string.IsNullOrWhiteSpace(t) == false).ToList();
 
                 var cur = treeView1.Nodes;
+                TreeNode leaf = null;
                 foreach (var t in tokens)
                 {
                     bool found = false;
@@ -124,7 +125,17 @@ namespace PoseAnnotationTool
 
                     if (!found)
                     {
-                        cur = cur.Add(t).Nodes;
+                        leaf = cur.Add(t);
+                        cur = leaf.Nodes;
+                    }
+                }
+
+                if (leaf != null)
+                {
+                    string annotPath = System.IO.Path.ChangeExtension(f, ".txt");
+                    if (System.IO.File.Exists(annotPath))
+                    {
+                        leaf.ForeColor = Color.FromArgb(255, 69, 117, 255);
                     }
                 }
             }
@@ -271,7 +282,7 @@ namespace PoseAnnotationTool
                             float py = parent.Position.Y;
                             px *= ratio;
                             py *= ratio;
-                            e.Graphics.DrawLine(new Pen(boneColors[i], 8 * ratio), x, y, px, py);
+                            e.Graphics.DrawLine(new Pen(boneColors[i], 4 * ratio), x, y, px, py);
                         }
                     }
 
