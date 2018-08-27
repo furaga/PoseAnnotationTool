@@ -290,11 +290,11 @@ namespace PoseAnnotationTool
                     {
                         if (kp == HoveringJoint)
                         {
-                            e.Graphics.FillEllipse(Brushes.Red, x - 2 * r, y - 2 * r, 4 * r, 4 * r);
+                            e.Graphics.DrawEllipse(new Pen(Color.Red, 2), x - 2 * r, y - 2 * r, 4 * r, 4 * r);
                         }
                         if (kp == SelectingJoint)
                         {
-                            e.Graphics.FillEllipse(Brushes.Red, x - 2 * r, y - 2 * r, 4 * r, 4 * r);
+                            e.Graphics.DrawEllipse(new Pen(Color.Red, 2), x - 2 * r, y - 2 * r, 4 * r, 4 * r);
                         }
                     }
                 }
@@ -318,7 +318,7 @@ namespace PoseAnnotationTool
                     float dx = screenPt.X - x;
                     float dy = screenPt.Y - y;
                     float distSq = dx * dx + dy * dy;
-                    if (distSq <= r * r)
+                    if (distSq <= r * r * 1.5f * 1.5f)
                     {
                         return kp;
                     }
