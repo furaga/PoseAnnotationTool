@@ -164,8 +164,9 @@ namespace PoseAnnotationTool
             }
         }
 
-        private void treeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
+
             if (e.Node.Nodes.Count > 0)
             {
                 return;
@@ -188,7 +189,6 @@ namespace PoseAnnotationTool
             loadAnnotation(path);
             pictureBox1.Invalidate();
         }
-
         void loadImage(string path)
         {
             if (Img != null)
@@ -370,5 +370,6 @@ namespace PoseAnnotationTool
         {
 
         }
+        
     }
 }
