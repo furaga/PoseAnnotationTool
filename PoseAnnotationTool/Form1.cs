@@ -102,6 +102,7 @@ namespace PoseAnnotationTool
             kps[12] = new Joint(500, 100, 13);
             kps[13] = new Joint(600, 100, -1);
 
+            int annotCount = 0;
             datasets = new Datasets();
             foreach (var f in datasets.FileList)
             {
@@ -136,10 +137,12 @@ namespace PoseAnnotationTool
                     if (System.IO.File.Exists(annotPath))
                     {
                         leaf.ForeColor = Color.FromArgb(255, 69, 117, 255);
+                        annotCount++;
                     }
                 }
             }
 
+            Console.WriteLine("# of Annotation = " + annotCount);
         }
 
         private void checkBoxJoint_CheckedChanged(object sender, EventArgs e)
@@ -370,6 +373,24 @@ namespace PoseAnnotationTool
         {
 
         }
-        
+
+        void swap(Joint kps1, Joint kps2)
+        {
+            var t = kps1.Position;
+            kps1.Position = kps2.Position;
+            kps2.Position = t;
+        }
+
+        private void flipButton_Click(object sender, EventArgs e)
+        {
+            swap(kps[5], kps[0]);
+            swap(kps[4], kps[1]);
+            swap(kps[3], kps[2]);
+            swap(kps[11], kps[6]);
+            swap(kps[10], kps[7]);
+            swap(kps[9], kps[8]);
+            saveAnnotation(ImagePath);
+            pictureBox1.Invalidate();
+        }
     }
 }

@@ -51,6 +51,7 @@
             this.fIleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.flipButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -72,6 +73,7 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.flipButton);
             this.splitContainer1.Panel1.Controls.Add(this.checkBox15);
             this.splitContainer1.Panel1.Controls.Add(this.checkBox14);
             this.splitContainer1.Panel1.Controls.Add(this.checkBox13);
@@ -384,6 +386,16 @@
             this.saveAllToolStripMenuItem.Text = "Save All";
             this.saveAllToolStripMenuItem.Click += new System.EventHandler(this.saveAllToolStripMenuItem_Click);
             // 
+            // flipButton
+            // 
+            this.flipButton.Location = new System.Drawing.Point(13, 473);
+            this.flipButton.Name = "flipButton";
+            this.flipButton.Size = new System.Drawing.Size(114, 29);
+            this.flipButton.TabIndex = 15;
+            this.flipButton.Text = "Flip Left/Right";
+            this.flipButton.UseVisualStyleBackColor = true;
+            this.flipButton.Click += new System.EventHandler(this.flipButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -439,6 +451,7 @@
         private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveAllToolStripMenuItem;
+        private System.Windows.Forms.Button flipButton;
     }
 }
 
