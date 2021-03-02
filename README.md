@@ -21,6 +21,6 @@ images
 ├ ...
 ```
 
-2. Replace "DefaultDataDir" in Datasets.cs with your image folder.
+2. Replace "DefaultDataDir" in Datasets.cs with the root image folder path.
 
 3. Then, build and run (We confirmed it works in Visual Studio 2019)
